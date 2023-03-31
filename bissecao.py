@@ -1,7 +1,10 @@
-from math import exp,sin
+# Método da bisseção
+# Lucas Gusmão Valduga 21103505
+
+from math import exp,cos
 
 def calc_f(x):
-    return exp(x)*sin(x)-1
+    return exp(x)-2*cos(x)
 
 while True:
     a = float(input("\nInsira o valor de A no intervalo: "))
@@ -14,24 +17,23 @@ while True:
         print()
         break
     else:
-        print("Não há raiz dentro do intervalo (a,b), insira os valores novamente\n")
+        print("\nNão há raiz dentro do intervalo (a,b), insira os valores novamente\n")
 
-erro = 10**-16 # precisão
-xm = (a+b)/2 # x médio de (a,b)
-fxm = calc_f(xm) # função calculada no x médio
+erro = 10**-15 # precisão
+fxm = 1 # função calculada no x médio
 k = 0 # número de iterações
 
 while (abs(fxm) > erro):
+    k += 1
+    xm = (a+b)/2
+    fxm = calc_f(xm)
+    
     if (fa * fxm < 0):
         b = xm
         fb = fxm
     else:
         a = xm
         fa = fxm
-        
-    k += 1
-    xm = (a+b)/2
-    fxm = calc_f(xm)
     
 print(f"Aproximação da raiz: {xm}")
 print(f"Precisão: {fxm}")
