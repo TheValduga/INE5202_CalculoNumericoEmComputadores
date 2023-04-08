@@ -25,5 +25,5 @@ while (abs(fx0) > erro):
     fx0 = calc_f(x0)
 
 print(f"Aproximação da raiz: {xk}")
-print(f"Precisão: {calc_f(fx0)}")
+print(f"Precisão: {fx0}")
 print(f"numero de iterações: {i}")
